@@ -9,48 +9,44 @@ import { validateWithZodSchema, linkSchema } from '@/utils/schemas';
 import { Link } from '@/utils/types';
 
 function LinkPage() {
-  const [user, setUser] = useState<any>(null);
-  const [user2, setUser2] = useState<any>(null);
-  const [link, setLink] = useState<any>([]);
+  const [user, setUser] = useState<string | null>(null); // Ensure user is a string or null
+  const [link, setLink] = useState<Link[]>([]);
   const [error, setError] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [refresh, setRefresh] = useState<number>(0);
 
   useEffect(() => {
-    setIsLoading(true);
-    setUser(fetchSession());
+    const fetchUser = async () => {
+      setIsLoading(true);
+      const myUserID = await fetchSession();
+      if (myUserID) {
+        setUser(myUserID);
+        const { data, error } = await supabase
+          .from('Link')
+          .select('*')
+          .eq('userid', myUserID);
+
+        if (error) {
+          setError('Error fetching profiles');
+          console.error('Error fetching profiles:', error);
+        } else {
+          setLink((data as Link[]) || []);
+        }
+        setIsLoading(false);
+      } else {
+        setIsLoading(false);
+        setError('User session not found');
+      }
+    };
+
+    fetchUser();
+
     // Subscribe to auth changes
     const {
       data: { subscription },
     } = mySupabase.auth.onAuthStateChange((_event, session) => {
-      setUser2(session?.user.id ?? null);
+      setUser(session?.user.id ?? null);
     });
-
-    // FETCHING USER LINKS
-    const fetchProfiles = async () => {
-      // Fetch profiles where the email matches 'segun@example.com'
-      const myUserID = await fetchSession();
-
-      const { data, error } = await supabase
-        .from('Link')
-        .select('*')
-        .eq('userid', myUserID);
-
-      if (data) {
-        setIsLoading(false);
-      }
-
-      if (error) {
-        setError('Error fetching profiles');
-        setIsLoading(false);
-        console.error('Error fetching profiles:', error);
-        return;
-      }
-
-      setLink((data as Link[]) || []);
-    };
-    // END OF LINKS FETCHING
-    fetchProfiles();
 
     // Cleanup subscription on unmount
     return () => {
@@ -67,24 +63,24 @@ function LinkPage() {
       const rawData = Object.fromEntries(formData);
       const validatedFields = validateWithZodSchema(linkSchema, rawData);
 
-      const myUserID = await user;
-      if (!myUserID) {
+      if (!user) {
         throw new Error('User not found');
       }
 
       // Insert new link
       const { error } = await supabase
         .from('Link')
-        .insert([{ ...validatedFields, userid: myUserID }]);
+        .insert([{ ...validatedFields, userid: user }]);
 
       if (error) {
         throw error;
       }
+
+      // Refresh the links after insertion
+      setRefresh((prev) => prev + 1);
     } catch (error) {
       console.error('Error saving link:', error);
     }
-    const newNumber = refresh + 1;
-    setRefresh(newNumber);
   };
 
   return (
