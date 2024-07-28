@@ -154,7 +154,7 @@ function AccountPage() {
 
             <Button
               type="submit"
-              name="Create new account"
+              name="Login"
               isLoading={isLoading}
               text="Loading..."
             />
