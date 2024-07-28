@@ -11,7 +11,7 @@ import { FaLinkedin, FaFacebook, FaDev, FaTwitter } from 'react-icons/fa';
 import { FaArrowRight } from 'react-icons/fa6';
 import CustomLinks from '@/components/CustomLinks';
 
-function page() {
+const PreviewPage = () => {
   const [user, setUser] = useState<string | null>(null);
   const [links, setLinks] = useState<linkType[]>([]);
   const [profile, setProfile] = useState<myProfile | null>(null);
@@ -207,5 +207,5 @@ function page() {
       </div>
     </div>
   );
-}
-export default page;
+};
+export default PreviewPage;

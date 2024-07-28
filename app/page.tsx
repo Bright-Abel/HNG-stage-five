@@ -162,7 +162,7 @@ function AccountPage() {
 
           <div className="text-center text-[16px] leading-[24px]">
             <h1 className="text-[#737373]">
-              Don't have an account?
+              Don&apos;t have an account?
               <Link href="/createAccount" className="text-[#633CFF] ml-1">
                 Create account
               </Link>
