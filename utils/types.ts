@@ -1,11 +1,3 @@
-import { Prisma } from '@prisma/client';
-
-// export type CartItemWithProduct = Prisma.CartItemGetPayload<{
-//   include: { product: true };
-// }>;
-
-// Usage
-
 export type Link = {
   id: string;
   social: string;
