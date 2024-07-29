@@ -86,7 +86,7 @@ const PreviewPage = () => {
   return (
     <div className="relative h-screen">
       <div className=" absolute  w-full h-[357px] bg-[#633CFF] hidden md:block rounded-b-[32px] -z-50"></div>
-      <div className="max-w-[1440px] w-full  py-[24px] !px-8">
+      <div className="max-w-[1440px] mx-auto w-full  py-[24px] !px-8">
         <header className="w-full rounded-[12px] md:py-[16px] md:px-[24px] bg-white mx-auto flex justify-between gap-[16px] z-50">
           <div className="py-[11px] px-[27px] rounded-[8px] border border-solid border-[#633CFF]">
             <Link
