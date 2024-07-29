@@ -47,8 +47,8 @@ function NavBar() {
             className="text-[#633CFF] text-[16px] leading-[24px] font-semibold hidden md:block"
           >
             Preview
+            <Image src={prevLog} alt="logo" className="md:hidden block" />
           </Link>
-          <Image src={prevLog} alt="logo" className="md:hidden block" />
         </div>
       </div>
     </nav>
