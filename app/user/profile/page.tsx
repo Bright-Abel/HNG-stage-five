@@ -232,10 +232,12 @@ function ProfilePage() {
                 />
               </div>
             </div>
-            <div className=" h-[94px] w-full py-[24px] md:px-[40px] p-[24px] mt-3 rounded-b-[12px] flex md:justify-end text-[16px] leading-[24px] font-semibold ">
+            <div className="bg-white h-[94px] w-full py-[24px] md:px-[40px] p-[24px] rounded-b-[12px] flex justify-end text-[16px] leading-[24px] font-semibold">
               <button
                 type="submit"
-                className="py-[11px] px-[27px] rounded-[8px] w-full md:w-[91px] hover:bg-[#BEADFF] duration-500 bg-[#633CFF] text-white"
+                className={`py-[11px] px-[27px] w-full md:w-[91px] rounded-[8px] hover:bg-[#BEADFF] duration-500 bg-[#633CFF] text-white ${
+                  isLoading || !data ? 'cursor-not-allowed' : 'cursor-pointer'
+                }`}
               >
                 {isLoading ? (
                   <Loading
