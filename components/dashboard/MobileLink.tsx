@@ -103,7 +103,7 @@ const MobileLink: React.FC<MobileProps> = ({ newNumber }) => {
         <div className="w-[148px] h-[18px] bg-white top-[9px] rounded-b-[1rem] left-1/2 -translate-x-1/2 absolute border border-solid border-[#737373] !border-t-white"></div>
 
         <div className="rounded-[2rem] overflow-hidden w-[285px] h-[611px] bg-white flex justify-center items-center border border-solid border-[#737373]">
-          <div className="h-[414px] w-[237px] flex justify-between flex-col  gap-[56px]">
+          <div className="h-[500px] w-[237px] flex justify-between flex-col  gap-[56px]">
             <div className="flex flex-col gap-[25px] items-center">
               {profile?.image ? (
                 <Image
@@ -138,7 +138,7 @@ const MobileLink: React.FC<MobileProps> = ({ newNumber }) => {
                 )}
               </div>
             </div>
-            <div className="flex flex-col gap-[20px]">
+            <div className="flex flex-col gap-[20px] h-[400px] scrollbar-style overflow-y-auto">
               {links.length >= 1 ? (
                 links.map((link, index) => {
                   const { id, social, url } = link;
