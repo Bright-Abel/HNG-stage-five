@@ -192,7 +192,6 @@ function ProfilePage() {
                   </p>
                 </div>
               </div>
-
               {/* USER DETAILS */}
               <div className="bg-[#FAFAFA] rounded-[12px] p-[20px] flex flex-col gap-[12px]">
                 <FormInput
@@ -233,7 +232,7 @@ function ProfilePage() {
                 />
               </div>
             </div>
-            <div className=" w-full py-[24px] md:p-[40px] p-[24px] mt-3 rounded-b-[12px] flex md:justify-end text-[16px] leading-[24px] font-semibold ">
+            <div className=" h-[94px] w-full py-[24px] md:px-[40px] p-[24px] mt-3 rounded-b-[12px] flex md:justify-end text-[16px] leading-[24px] font-semibold ">
               <button
                 type="submit"
                 className="py-[11px] px-[27px] rounded-[8px] w-full md:w-[91px] hover:bg-[#BEADFF] duration-500 bg-[#633CFF] text-white"
