@@ -143,8 +143,8 @@ function ProfilePage() {
     <div className="flex gap-[24px] w-full">
       <MobileLink newNumber={refresh} />
       {/* SECOND COMP */}
-      <div className="flex flex-col gap-[8px] lg:w-[55.21%] w-full">
-        <div className="lg:w-[808px] w-full rounded-t-[12px] bg-white p-[40px] flex flex-col gap-[40px]">
+      <div className="flex flex-col gap-[8px] lg:w-[808px] w-full">
+        <div className=" w-full rounded-t-[12px] bg-white p-[40px] flex flex-col gap-[40px]">
           <FormHeader
             header="Profile Details"
             pText="Add your details to create a personal touch to your profile."
@@ -156,15 +156,19 @@ function ProfilePage() {
                 <p className="text-[#737373] text-[16px] leading-[24px]">
                   Profile Picture
                 </p>
-                <div className="flex gap-[24px] items-center flex-col md:flex-row">
+                <div className="flex gap-[24px] items-center justify-center text-center md:text-end flex-col md:flex-row">
                   <div className="w-[193px] h-[193px] rounded-[12px] relative bg-[#EFEBFF] flex justify-center items-center">
                     {(file || profile?.image) && (
                       <Image
                         onMouseEnter={() => setMouseEvent(true)}
                         onMouseLeave={() => setMouseEvent(false)}
-                        src={profile?.image || URL.createObjectURL(file!)}
+                        src={
+                          file
+                            ? URL.createObjectURL(file)
+                            : profile?.image || ''
+                        }
                         alt="image"
-                        className={`h-full w-full rounded-[12px] absolute top-0 left-0 right-0 object-cover  ${
+                        className={`h-full w-full rounded-[12px] absolute top-0 left-0 right-0 object-cover ${
                           mouseEvent ? 'z-10' : 'z-20'
                         }`}
                         width={193}
@@ -178,6 +182,7 @@ function ProfilePage() {
                       file={file}
                       onFileSelect={handleFileSelect}
                       mouseEvent={mouseEvent}
+                      profile={profile?.image}
                     />
                   </div>
 

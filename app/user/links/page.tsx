@@ -110,7 +110,7 @@ function LinkPage() {
   return (
     <div className="flex lg:gap-[24px] w-full">
       <MobileLink newNumber={refresh} />
-      <form onSubmit={handleSubmit} className=" w-full">
+      <form onSubmit={handleSubmit} className=" w-full lg:w-[808px]">
         <LinksDisplay links={link} isLoading={isLoading} newNumber={refresh} />
       </form>
     </div>

@@ -2,7 +2,7 @@
 
 import React, { useRef } from 'react';
 import upload from '@/myImages/upload.svg';
-import upload2 from '@/myImages/upload2.svg'
+import upload2 from '@/myImages/upload2.svg';
 import Image from 'next/image';
 import { useState } from 'react';
 
@@ -11,12 +11,15 @@ type FileUploadProps = {
   onFileSelect: (file: File) => void;
   name: string;
   mouseEvent: boolean;
+  profile: string | undefined;
 };
 
 const FileSelect: React.FC<FileUploadProps> = ({
   onFileSelect,
   name,
   mouseEvent,
+  file,
+  profile,
 }) => {
   const fileInputRef = useRef<HTMLInputElement>(null);
 
@@ -31,7 +34,7 @@ const FileSelect: React.FC<FileUploadProps> = ({
 
   return (
     <div
-      onMouseEnter={() => setMouseE(true)}
+      onMouseEnter={() => setMouseE(file || profile ? true : false)}
       onMouseLeave={() => setMouseE(false)}
       className={`flex justify-center items-center ${
         mouseEvent || mouseE
