@@ -39,8 +39,8 @@ const MobileLink: React.FC<MobileProps> = ({ newNumber }) => {
         .eq('userid', user);
 
       if (error) {
-        setError('Error fetching profiles');
-        console.error('Error fetching profiles:', error);
+        // setError('Error fetching profiles');
+        // console.error('Error fetching profiles:', error);
         setIsLoading(false);
       } else {
         setLinks(data as linkType[]);
@@ -63,8 +63,8 @@ const MobileLink: React.FC<MobileProps> = ({ newNumber }) => {
         .single();
 
       if (error) {
-        setError('Error fetching profiles');
-        console.error('Error fetching profiles:', error);
+        // setError('Error fetching profiles');
+        // console.error('Error fetching profiles:', error);
       } else {
         setProfile(data as Profile);
       }
