@@ -144,7 +144,7 @@ function ProfilePage() {
       <MobileLink newNumber={refresh} />
       {/* SECOND COMP */}
       <div className="flex flex-col gap-[8px] lg:w-[808px] w-full">
-        <div className=" w-full rounded-t-[12px] bg-white p-[40px] flex flex-col gap-[40px]">
+        <div className=" w-full rounded-t-[12px] bg-white md:p-[40px] p-[24px] flex flex-col gap-[40px]">
           <FormHeader
             header="Profile Details"
             pText="Add your details to create a personal touch to your profile."
@@ -233,10 +233,10 @@ function ProfilePage() {
                 />
               </div>
             </div>
-            <div className=" w-full py-[24px] mt-3 rounded-b-[12px] flex justify-end text-[16px] leading-[24px] font-semibold ">
+            <div className=" w-full py-[24px] md:p-[40px] p-[24px] mt-3 rounded-b-[12px] flex md:justify-end text-[16px] leading-[24px] font-semibold ">
               <button
                 type="submit"
-                className="py-[11px] px-[27px] rounded-[8px] hover:bg-[#BEADFF] duration-500 bg-[#633CFF] text-white"
+                className="py-[11px] px-[27px] rounded-[8px] w-full md:w-[91px] hover:bg-[#BEADFF] duration-500 bg-[#633CFF] text-white"
               >
                 {isLoading ? (
                   <Loading

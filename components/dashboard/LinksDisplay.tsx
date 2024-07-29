@@ -33,7 +33,7 @@ const LinksDisplay: React.FC<LinksDisplayProps> = ({
   return (
     <div className="flex flex-col gap-[12px] w-full">
       <div className="flex flex-col gap-[8px] h-[739px] rounded-t-[12px] scrollbar-style bg-white w-full overflow-x-auto overflow-y-hidden">
-        <div className="w-full p-[40px] flex flex-col gap-[40px]">
+        <div className="w-full md:p-[40px] p-[24px] flex flex-col gap-[40px]">
           <FormHeader
             header="Customize your links"
             pText="Add/edit/remove links below and then share all your profiles with the world!"
@@ -76,10 +76,10 @@ const LinksDisplay: React.FC<LinksDisplayProps> = ({
         </div>
       </div>
       {(links.length >= 1 || data) && (
-        <div className="bg-white h-[94px] w-full py-[24px] px-[40px] rounded-b-[12px] flex justify-end text-[16px] leading-[24px] font-semibold">
+        <div className="bg-white h-[94px] w-full py-[24px] md:px-[40px] p-[24px] rounded-b-[12px] flex justify-end text-[16px] leading-[24px] font-semibold">
           <button
             type="submit"
-            className={`py-[11px] px-[27px] rounded-[8px] hover:bg-[#BEADFF] duration-500 bg-[#633CFF] text-white ${
+            className={`py-[11px] px-[27px] w-full md:w-[91px] rounded-[8px] hover:bg-[#BEADFF] duration-500 bg-[#633CFF] text-white ${
               isLoading || !data ? 'cursor-not-allowed' : 'cursor-pointer'
             }`}
           >
