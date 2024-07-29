@@ -1,4 +1,33 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-  
+
+body {
+  background-color: #ffffff;
+}
+@media screen and (min-width: 768px) {
+  body {
+    background-color: #fafafa;
+  }
+}
+
+/* globals.css or styles.css */
+
+.scrollbar-style::-webkit-scrollbar {
+  width: 6px;
+}
+
+.scrollbar-style::-webkit-scrollbar-thumb {
+  background-color: #888;
+  border-radius: 4px;
+}
+
+/* Firefox */
+.scrollbar-style {
+  scrollbar-width: thin;
+}
+
+.customBackground {
+  background: linear-gradient(0deg, #efebff, #efebff),
+    linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
+}

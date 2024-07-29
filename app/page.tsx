@@ -114,14 +114,14 @@ function AccountPage() {
       login();
     }
   };
-
+  // max-w-[1440px] mx-auto w-full p-[24px]
   return (
-    <main className="flex justify-center items-center flex-col w-full">
+    <main className="flex justify-center items-center flex-col w-full p-[24px]">
       <div className="max-w-[476px] w-full md:mt-[100px] md:mb-[20px] flex flex-col gap-[51px]">
         <div className="w-full flex md:justify-center">
           <Image src={link} alt="link logo" />
         </div>
-        <div className="bg-white rounded-[12px] p-[40px] flex flex-col gap-[40px]">
+        <div className="bg-white rounded-[12px] md:p-[40px] flex flex-col gap-[40px]">
           <form onSubmit={handleSubmit} className="flex flex-col gap-[40px]">
             <FormHeader
               header="Login"

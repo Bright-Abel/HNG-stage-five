@@ -31,7 +31,7 @@ const LinksDisplay: React.FC<LinksDisplayProps> = ({
   };
 
   return (
-    <div className="flex flex-col gap-[12px] lg:w-[808px] w-full">
+    <div className="flex flex-col gap-[12px] w-full">
       <div className="flex flex-col gap-[8px] h-[739px] rounded-t-[12px] scrollbar-style bg-white w-full overflow-x-auto overflow-y-hidden">
         <div className="w-full p-[40px] flex flex-col gap-[40px]">
           <FormHeader
@@ -76,7 +76,7 @@ const LinksDisplay: React.FC<LinksDisplayProps> = ({
         </div>
       </div>
       {(links.length >= 1 || data) && (
-        <div className="lg:w-[808px] bg-white h-[94px] w-full py-[24px] px-[40px] rounded-b-[12px] flex justify-end text-[16px] leading-[24px] font-semibold">
+        <div className="bg-white h-[94px] w-full py-[24px] px-[40px] rounded-b-[12px] flex justify-end text-[16px] leading-[24px] font-semibold">
           <button
             type="submit"
             className={`py-[11px] px-[27px] rounded-[8px] hover:bg-[#BEADFF] duration-500 bg-[#633CFF] text-white ${

@@ -7,13 +7,20 @@ import { fetchSession } from '@/utils/supabaseServer';
 import { useEffect, useState } from 'react';
 import { validateWithZodSchema, linkSchema } from '@/utils/schemas';
 import { Link } from '@/utils/types';
+import { useToast } from '@/components/ui/use-toast';
 
 function LinkPage() {
+  const { toast } = useToast();
   const [user, setUser] = useState<string | null>(null); // Ensure user is a string or null
   const [link, setLink] = useState<Link[]>([]);
   const [error, setError] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState<boolean>(false);
+  // const [refreshAddLink, setRefreshAddLink] = useState<boolean>(false);
   const [refresh, setRefresh] = useState<number>(0);
+
+  const handleClick = () => {
+    // setIsLoading(true);
+  };
 
   useEffect(() => {
     const fetchUser = async () => {
@@ -57,6 +64,14 @@ function LinkPage() {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const formData = new FormData(e.currentTarget);
+    const social = formData.get('social') as string;
+    const url = formData.get('url') as string;
+    if (!url.includes(social)) {
+      toast({
+        description: `This is not a valid url for a ${social} account. Please provide a valid url, and try again`,
+      });
+      return;
+    }
 
     try {
       // Convert formData to an object and validate it
@@ -68,13 +83,15 @@ function LinkPage() {
       }
 
       // Insert new link
-      const { error } = await supabase
+      const { data, error } = await supabase
         .from('Link')
         .insert([{ ...validatedFields, userid: user }]);
 
       if (error) {
         throw error;
       }
+
+      // setRefreshAddLink(false);
 
       // Refresh the links after insertion
       setRefresh((prev) => prev + 1);
@@ -84,9 +101,9 @@ function LinkPage() {
   };
 
   return (
-    <div className="flex lg:gap-[24px]">
+    <div className="flex lg:gap-[24px] w-full">
       <MobileLink newNumber={refresh} />
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className=" w-full">
         <LinksDisplay links={link} isLoading={isLoading} newNumber={refresh} />
       </form>
     </div>

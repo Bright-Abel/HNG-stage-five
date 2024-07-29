@@ -136,10 +136,10 @@ function ProfilePage() {
   };
 
   return (
-    <div className="flex gap-[24px]">
+    <div className="flex gap-[24px] w-full">
       <MobileLink newNumber={refresh} />
       {/* SECOND COMP */}
-      <div className="flex flex-col gap-[8px] lg:w-[808px] w-full">
+      <div className="flex flex-col gap-[8px] lg:w-[55.21%] w-full">
         <div className="lg:w-[808px] w-full rounded-t-[12px] bg-white p-[40px] flex flex-col gap-[40px]">
           <FormHeader
             header="Profile Details"
@@ -220,6 +220,7 @@ function ProfilePage() {
                   textClass="text-[16px] leading-[24px]"
                   inputClass="md:w-[68%] w-full"
                   defaultValue={profile?.email || ''}
+                  require={true}
                 />
               </div>
             </div>

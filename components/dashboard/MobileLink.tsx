@@ -90,7 +90,7 @@ const MobileLink: React.FC<MobileProps> = ({ newNumber }) => {
 
   if (isLoading) {
     return (
-      <div className="w-[560px] pt-[24px] rounded-[12px] bg-white hidden lg:flex justify-center items-center">
+      <div className="w-[38.36%] pt-[24px] rounded-[12px] bg-white hidden lg:flex justify-center items-center">
         <Loading color="#737373" strokeWidth={4} height={200} width={100} />
       </div>
     );

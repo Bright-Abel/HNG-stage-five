@@ -19,7 +19,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={instrument.className}>
-        <div className="">{children}</div>
+        <main className="">
+          <div className="">{children}</div>
+        </main>
         <Toaster />
       </body>
     </html>

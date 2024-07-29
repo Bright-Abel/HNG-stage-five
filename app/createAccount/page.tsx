@@ -86,10 +86,14 @@ function AccountPage() {
       confirm_password: '',
       genErr: '',
     };
+    const emailPattern =
+      /(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9]))\.){3}(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9])|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])/;
 
     if (data.email === '' || data.email.length < 2) {
       newErrors.email = "Can't be empty";
       setIsLoading(false);
+    } else if (!emailPattern.test(data.email)) {
+      newErrors.email = 'Please use a valid email';
     } else {
       newErrors.email = '';
     }
@@ -124,12 +128,12 @@ function AccountPage() {
   };
 
   return (
-    <main className="flex justify-center items-center flex-col w-full">
-      <div className="max-w-[476px] w-full md:mt-[100px] md:mb-[20px] flex flex-col gap-[51px]">
+    <main className="flex justify-center items-center flex-col w-full p-[24px]">
+      <div className="max-w-[476px] w-full md:mt-[100px] md:mb-[20px] flex flex-col gap-[40px] md:gap-[51px]">
         <div className="w-full flex md:justify-center">
           <Image src={link} alt="link logo" />
         </div>
-        <div className="bg-white rounded-[12px] p-[40px] flex flex-col gap-[40px]">
+        <div className="bg-white rounded-[12px] md:p-[40px] flex flex-col gap-[40px]">
           <form onSubmit={handleSubmit} className="flex flex-col gap-[40px]">
             <FormHeader
               header="Create account"
@@ -146,6 +150,7 @@ function AccountPage() {
               err={errors.email}
               genClassName="flex flex-col gap-[4px]"
               textClass="text-[12px] leading-[18px]"
+              require={true}
             />
             <FormInput
               label="Create password"
@@ -158,6 +163,7 @@ function AccountPage() {
               err={errors.password}
               genClassName="flex flex-col gap-[4px]"
               textClass="text-[12px] leading-[18px]"
+              require={true}
             />
             <div className="flex-col flex gap-2">
               <FormInput
@@ -169,6 +175,7 @@ function AccountPage() {
                 handleChange={handleChange}
                 err={errors.confirm_password}
                 src={lock}
+                require={true}
                 genClassName="flex flex-col gap-[4px]"
                 textClass="text-[12px] leading-[18px]"
               />

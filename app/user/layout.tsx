@@ -13,7 +13,7 @@ export default function RootLayout({
 }) {
   return (
     <main className={instrument.className}>
-      <div className="bg-[#fafafa] max-w-[1440px] w-full p-[24px] flex flex-col gap-[20px]">
+      <div className="bg-[#fafafa] max-w-[1440px] mx-auto w-full p-[24px] flex flex-col gap-[20px]">
         <header className="">
           <NavBar />
         </header>
