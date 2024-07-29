@@ -68,7 +68,14 @@ function LinkPage() {
     const url = formData.get('url') as string;
     if (!url.includes(social)) {
       toast({
-        description: `This is not a valid url for a ${social} account. Please provide a valid url, and try again`,
+        description: (
+          <p>
+            This is not a valid url for a ${social} account. Please provide a
+            valid url, and try again
+          </p>
+        ),
+        duration: 4000,
+        className: 'toast',
       });
       return;
     }

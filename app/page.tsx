@@ -84,9 +84,15 @@ function AccountPage() {
         // Inform the user of any errors
         setIsLoading(false);
         toast({
-          description: error.message.includes('rate limit')
-            ? 'Too many failed attempts. Please try again later.'
-            : error.message,
+          description: (
+            <p>
+              {error.message.includes('rate limit')
+                ? 'Too many failed attempts. Please try again later.'
+                : error.message}
+            </p>
+          ),
+          duration: 4000,
+          className: 'toast',
         });
         return; // Exit the function to prevent further execution
       }
@@ -102,7 +108,9 @@ function AccountPage() {
     } catch (err) {
       setIsLoading(false);
       toast({
-        description: 'An unexpected error occurred. Please try again later.',
+        description: <p>An unexpected error occur. Please try again!</p>,
+        duration: 4000,
+        className: 'toast',
       });
     }
   };

@@ -115,7 +115,9 @@ function ProfilePage() {
         if (data) {
           setIsLoading(false);
           toast({
-            description: 'Profile saved successfully',
+            description: <p>Profile has been successfully saved</p>,
+            duration: 4000,
+            className: 'toast',
           });
         }
 
@@ -126,7 +128,9 @@ function ProfilePage() {
       }
     } catch (error) {
       toast({
-        description: 'Please Upload a new image',
+        description: <p>Please upload a new Image</p>,
+        duration: 4000,
+        className: 'toast',
       });
       setIsLoading(false);
       return { error: 'Error saving profile' };

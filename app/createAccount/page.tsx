@@ -62,9 +62,15 @@ function AccountPage() {
 
       if (error) {
         toast({
-          description: error.message.includes('rate limit')
-            ? 'Too many failed attempts. Please try again later.'
-            : error.message,
+          description: (
+            <p>
+              {error.message.includes('rate limit')
+                ? 'Too many failed attempts. Please try again later.'
+                : error.message}
+            </p>
+          ),
+          duration: 4000,
+          className: 'toast',
         });
         setIsLoading(false);
         return;
@@ -72,7 +78,9 @@ function AccountPage() {
       window.location.href = '/';
     } catch (err) {
       toast({
-        description: 'An unexpected error occurred. Please try again later.',
+        description: <p>An unexpected error occur. Please try again!</p>,
+        duration: 4000,
+        className: 'toast',
       });
     }
   };

@@ -68,7 +68,7 @@ function FormInput({
           disabled={disabled}
         />
         {err && (
-          <p className="text-[#FF3939] hidden md:block whitespace-nowrap text-[12px] leading-[18px]">
+          <p className="text-[#FF3939] whitespace-nowrap text-[12px] leading-[18px]">
             {err}
           </p>
         )}

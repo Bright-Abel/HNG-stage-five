@@ -31,3 +31,26 @@ body {
   background: linear-gradient(0deg, #efebff, #efebff),
     linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
 }
+
+/* TOAST */
+
+.toast-container {
+  position: fixed;
+  bottom: 16px; /* Adjust as needed */
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.toast {
+  background-color: #333; /* Custom background color */
+  color: #fff; /* Text color */
+  border-radius: 12px;
+  padding: 16px;
+  margin: 8px 0;
+  max-width: 400px; /* Adjust as needed */
+  text-align: center;
+}

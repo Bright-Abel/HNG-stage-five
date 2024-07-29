@@ -106,7 +106,7 @@ const PreviewPage = () => {
           </div>
         </header>
         <div
-          className="w-[349px] bg-white py-[48px] px-[56px] rounded-[24px] absolute translate-y-[15%] -translate-x-[50%] left-[50%]"
+          className="w-[349px] bg-white py-[48px] px-[56px] rounded-[24px] absolute translate-y-[10%] -translate-x-[50%] left-[50%]"
           style={{ boxShadow: '0px 0px 32px 0px #0000001A' }}
         >
           <div className="flex flex-col gap-[56px]">
@@ -115,9 +115,9 @@ const PreviewPage = () => {
                 <Image
                   src={profile?.image || ''}
                   alt="image"
-                  className="h-[96px] w-[96px] rounded-full object-cover z-50"
-                  width={96}
-                  height={96}
+                  className="h-[104px] w-[104px] rounded-full object-cover z-50 border-[4px] border-solid border-[#633CFF]"
+                  width={104}
+                  height={104}
                 />
               ) : (
                 <div className="h-[96px] w-[96px] rounded-full bg-[#EEEEEE]"></div>
