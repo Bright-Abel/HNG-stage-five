@@ -70,8 +70,8 @@ function LinkPage() {
       toast({
         description: (
           <p>
-            This is not a valid url for a ${social} account. Please provide a
-            valid url, and try again
+            This is not a valid url for a {social} account. Please provide a
+            valid url and try again.
           </p>
         ),
         duration: 4000,
